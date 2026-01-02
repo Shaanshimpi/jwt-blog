@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateBlog from './pages/CreateBlog';
+import BlogDetail from './pages/BlogDetail';
 import './App.css';
 
 const ProtectedRoute = ({ children }) => {
@@ -23,6 +24,7 @@ function AppRoutes() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
         <Route
           path="/login"
           element={!user ? <Login /> : <Navigate to="/" />}

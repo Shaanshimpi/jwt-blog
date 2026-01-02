@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [blogs, setBlogs] = useState([]);
@@ -30,16 +31,18 @@ function Home() {
 
             <div className="blog-grid">
                 {blogs.map((blog) => (
-                    <article key={blog._id} className="blog-card">
-                        <div className="blog-content">
-                            <h2>{blog.title}</h2>
-                            <p className="blog-excerpt">{blog.content?.substring(0, 150)}...</p>
-                            <div className="blog-meta">
-                                <div className="author-avatar"></div>
-                                <span className="author-id">Author ID: {blog.authorId?.substring(0, 8)}...</span>
+                    <Link to={`/blog/${blog._id}`} key={blog._id} className="blog-card-link">
+                        <article className="blog-card">
+                            <div className="blog-content">
+                                <h2>{blog.title}</h2>
+                                <p className="blog-excerpt">{blog.content?.substring(0, 150)}...</p>
+                                <div className="blog-meta">
+                                    <div className="author-avatar"></div>
+                                    <span className="author-id">Author ID: {blog.authorId?.substring(0, 8)}...</span>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    </Link>
                 ))}
             </div>
         </div>

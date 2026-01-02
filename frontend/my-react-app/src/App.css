@@ -46,7 +46,7 @@ a {
 
 /* Layout */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -75,6 +75,7 @@ a {
   font-weight: 700;
   background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.02em;
 }
@@ -154,21 +155,21 @@ a {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 5rem 0 3rem;
-  max-width: 800px;
+  padding: 6rem 0 4rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .hero h1 {
   font-family: var(--font-serif);
-  font-size: 3.5rem;
+  font-size: 4rem;
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--text-main);
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -176,9 +177,22 @@ a {
 /* Blog Grid */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2.5rem;
   padding: 2rem 0 5rem;
+}
+
+@media (min-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .blog-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .blog-card {
@@ -246,6 +260,7 @@ a {
   justify-content: center;
   background: radial-gradient(circle at top right, #e0e7ff 0%, transparent 40%),
     radial-gradient(circle at bottom left, #fef3c7 0%, transparent 40%);
+  padding: 2rem;
 }
 
 .auth-card {
@@ -314,15 +329,15 @@ a {
 
 /* Create Blog Page */
 .create-blog-container {
-  max-width: 800px;
-  margin: 3rem auto;
+  max-width: 900px;
+  margin: 4rem auto;
   padding: 0 2rem;
 }
 
 .title-input {
   width: 100%;
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: 3.5rem;
   border: none;
   background: transparent;
   margin-bottom: 1.5rem;
@@ -391,4 +406,76 @@ a {
 
 .blog-card:nth-child(3) {
   animation-delay: 0.3s;
+}
+
+/* Blog Detail Page */
+.blog-detail {
+  max-width: 800px;
+  margin: 4rem auto;
+}
+
+.blog-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.blog-title {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.blog-meta-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.author-avatar-large {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 50%;
+}
+
+.meta-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.publish-date {
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.blog-body {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-main);
+}
+
+.blog-body p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 2.5rem;
+  }
 }
