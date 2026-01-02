@@ -35,7 +35,6 @@ function BlogDetail() {
                     <div className="blog-meta-detail">
                         <div className="author-avatar-large"></div>
                         <div className="meta-text">
-                            <span className="author-name">Author ID: {blog.authorId}</span>
                             <span className="publish-date">Published on {new Date().toLocaleDateString()}</span>
                         </div>
                     </div>
