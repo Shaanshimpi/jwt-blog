@@ -1,6 +1,9 @@
 const express = require("express");
 const User = require("../models/users");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+
+const secretKey = process.env.SECRET_KEY;
 
 // Register route
 router.post("/register", async (req, res) => {
@@ -33,14 +36,16 @@ router.post("/login", async (req, res) => {
             return res.status(404).json({ error: "User not found" });
         }
 
-        // Simple password check (in production, use bcrypt)
         if (user.password !== password) {
             return res.status(401).json({ error: "Invalid credentials" });
         }
 
+        const token = jwt.sign({ userId: user._id }, secretKey);
+
         res.status(200).json({
             message: "Login successful",
-            user: { id: user._id, name: user.name, email: user.email }
+            user: { id: user._id, name: user.name, email: user.email },
+            token: token
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
